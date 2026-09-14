@@ -1,0 +1,73 @@
+name: Release (Unsigned zip)
+
+# No Apple Developer account: CI builds are ad-hoc signed (run locally after
+# right-click -> Open). Mirrors the local Release build: xcodebuild, then a
+# plain zip via ditto (keeps the signature). No Sparkle in Nightfall — the
+# update checker is removed from this fork, releases are manual.
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: macos-26
+    permissions:
+      contents: write
+    env:
+      APP_NAME: Nightfall
+      SCHEME: Nightfall
+      CONFIGURATION: Release
+      PROJECT: Nightfall.xcodeproj
+      DERIVED_DATA_PATH: ${{ github.workspace }}/build/DerivedData
+      APP_PATH: ${{ github.workspace }}/build/DerivedData/Build/Products/Release/Nightfall.app
+      ZIP_PATH: ${{ github.workspace }}/build/Nightfall-arm64.zip
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Xcode version
+        run: xcodebuild -version
+
+      - name: Build (ad-hoc, no Developer ID)
+        run: |
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration "$CONFIGURATION" \
+            -destination "generic/platform=macOS" \
+            -derivedDataPath "$DERIVED_DATA_PATH" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY=- \
+            CODE_SIGNING_REQUIRED=NO \
+            PROVISIONING_PROFILE_SPECIFIER="" \
+            ARCHS=arm64 \
+            ONLY_ACTIVE_ARCH=YES \
+            build
+
+      - name: Ad-hoc sign and verify
+        run: |
+          set -euo pipefail
+          codesign --force --sign - --deep "$APP_PATH"
+          codesign --verify --strict --verbose=2 "$APP_PATH"
+
+      - name: Create zip
+        run: |
+          set -euo pipefail
+          cd "$(dirname "$APP_PATH")"
+          ditto -c -k --keepParent "$(basename "$APP_PATH")" "$ZIP_PATH"
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nightfall-arm64-zip
+          path: "${{ env.ZIP_PATH }}"
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create "${{ github.ref_name }}" "$ZIP_PATH" --generate-notes

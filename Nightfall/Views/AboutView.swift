@@ -20,7 +20,7 @@ struct AboutView: View {
 
 	/// Open's the project's GitHub page
 	private func openGithubURL() {
-		if let url = URL(string: "https://github.com/\(GithubAPI.repoFullName)") {
+		if let url = URL(string: "https://github.com/r-thomson/Nightfall") {
 			NSWorkspace.shared.open(url)
 		}
 	}

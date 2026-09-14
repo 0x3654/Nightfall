@@ -13,7 +13,11 @@ func toggleDarkMode() {
 	}
 
 	// If the transition is disabled, the second argument must be true or nothing happens
-	setAppearanceTheme(to: !getAppearanceTheme(), notify: transition == nil)
+	let target = !getAppearanceTheme()
+	setAppearanceTheme(to: target, notify: transition == nil)
+
+	// Протолкнуть новую тему в Windows-VM (Parallels), если синк включён
+	WindowsThemeSync.push(dark: target == .dark)
 
 	transition?.postChangeNotification(0) {}
 }

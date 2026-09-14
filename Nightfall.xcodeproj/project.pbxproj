@@ -10,11 +10,8 @@
 		AF0046BB23C026CB001A2C61 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0046BA23C026CB001A2C61 /* UserDefaults.swift */; };
 		AF28E82423AA997E007FA92D /* PreferencesPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28E82323AA997E007FA92D /* PreferencesPopover.swift */; };
 		AF39030D23EDD6BE004F24EF /* NightfallLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFC6D03D23ECC16900540635 /* NightfallLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AF3F393C23F4633C0071520B /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3F393B23F4633C0071520B /* AppUpdateChecker.swift */; };
 		AF522512219BA23600A2A467 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF522511219BA23600A2A467 /* AppDelegate.swift */; };
 		AF522516219BA23800A2A467 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF522515219BA23800A2A467 /* Assets.xcassets */; };
-		AF559C7323EFA3400010EAE1 /* GithubAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF559C7223EFA3400010EAE1 /* GithubAPIModels.swift */; };
-		AF7A00B223EE5F890062D841 /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7A00B123EE5F890062D841 /* SemanticVersion.swift */; };
 		AF7A0686279E48290031EC45 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7A0685279E48290031EC45 /* View.swift */; };
 		AF818F2B23C2420B00E95C59 /* ToggleDarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF818F2A23C2420B00E95C59 /* ToggleDarkMode.swift */; };
 		AF8EED5E2A9A7A0C00B65FEB /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = AF8EED5D2A9A7A0C00B65FEB /* KeyboardShortcuts */; };
@@ -30,9 +27,11 @@
 		AFCF6CB323B5254400C5CA70 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCF6CB223B5254400C5CA70 /* PreferencesView.swift */; };
 		AFCF6CBD23B920AB00C5CA70 /* NSMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCF6CBC23B920AB00C5CA70 /* NSMenuItem.swift */; };
 		AFDE642323C920DA00BBEB7A /* PermissionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE642223C920DA00BBEB7A /* PermissionUtil.swift */; };
+		00000000000000000000A2 /* WindowsThemeSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000A1 /* WindowsThemeSync.swift */; };
+		00000000000000000000B1 /* WindowsVMProvisioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000A3 /* WindowsVMProvisioner.swift */; };
+		00000000000000000000B2 /* WindowsSyncSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000A4 /* WindowsSyncSection.swift */; };
 		AFE1CCE52798D63500DBC30F /* SkyLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE1CCE42798D63500DBC30F /* SkyLight.framework */; };
 		AFE1CCEC279A53FD00DBC30F /* AppearanceTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1CCEB279A53FD00DBC30F /* AppearanceTheme.swift */; };
-		AFEA8B2523F1C5430047EDD0 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEA8B2423F1C5430047EDD0 /* GithubAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,14 +60,11 @@
 /* Begin PBXFileReference section */
 		AF0046BA23C026CB001A2C61 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		AF28E82323AA997E007FA92D /* PreferencesPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPopover.swift; sourceTree = "<group>"; };
-		AF3F393B23F4633C0071520B /* AppUpdateChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		AF52250E219BA23600A2A467 /* Nightfall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightfall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF522511219BA23600A2A467 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF522515219BA23800A2A467 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF52251A219BA23800A2A467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF52251B219BA23800A2A467 /* Nightfall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightfall.entitlements; sourceTree = "<group>"; };
-		AF559C7223EFA3400010EAE1 /* GithubAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIModels.swift; sourceTree = "<group>"; };
-		AF7A00B123EE5F890062D841 /* SemanticVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticVersion.swift; sourceTree = "<group>"; };
 		AF7A0685279E48290031EC45 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		AF818F2A23C2420B00E95C59 /* ToggleDarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleDarkMode.swift; sourceTree = "<group>"; };
 		AF8EED612A9A7AF600B65FEB /* KeyboardShortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardShortcuts.swift; sourceTree = "<group>"; };
@@ -86,10 +82,12 @@
 		AFCF6CB223B5254400C5CA70 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		AFCF6CBC23B920AB00C5CA70 /* NSMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuItem.swift; sourceTree = "<group>"; };
 		AFDE642223C920DA00BBEB7A /* PermissionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionUtil.swift; sourceTree = "<group>"; };
+		00000000000000000000A1 /* WindowsThemeSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowsThemeSync.swift; sourceTree = "<group>"; };
+		00000000000000000000A3 /* WindowsVMProvisioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowsVMProvisioner.swift; sourceTree = "<group>"; };
+		00000000000000000000A4 /* WindowsSyncSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowsSyncSection.swift; sourceTree = "<group>"; };
 		AFE1CCE42798D63500DBC30F /* SkyLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyLight.framework; path = ../../../../System/Library/PrivateFrameworks/SkyLight.framework; sourceTree = "<group>"; };
 		AFE1CCEA2798DD8100DBC30F /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		AFE1CCEB279A53FD00DBC30F /* AppearanceTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceTheme.swift; sourceTree = "<group>"; };
-		AFEA8B2423F1C5430047EDD0 /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				AF2582E4238339680088E4B2 /* Extensions */,
-				AF559C7423EFA3680010EAE1 /* Networking */,
 				AFCF6CB123B523FA00C5CA70 /* Utility */,
 				AFC736C623B01D6200D80A21 /* Views */,
 				AF522511219BA23600A2A467 /* AppDelegate.swift */,
@@ -154,7 +151,6 @@
 				AF818F2A23C2420B00E95C59 /* ToggleDarkMode.swift */,
 				AF939CD823B3FA2E00053801 /* AboutWindowController.swift */,
 				AF28E82323AA997E007FA92D /* PreferencesPopover.swift */,
-				AF3F393B23F4633C0071520B /* AppUpdateChecker.swift */,
 				AF99EF79219BCE08004A252B /* Main.storyboard */,
 				AF522515219BA23800A2A467 /* Assets.xcassets */,
 				AF939CD623B1472700053801 /* About.txt */,
@@ -163,23 +159,6 @@
 				AF52251B219BA23800A2A467 /* Nightfall.entitlements */,
 			);
 			path = Nightfall;
-			sourceTree = "<group>";
-		};
-		AF559C7423EFA3680010EAE1 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				AFEA8B2423F1C5430047EDD0 /* GithubAPI.swift */,
-				AF559C7523EFA36C0010EAE1 /* Models */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		AF559C7523EFA36C0010EAE1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				AF559C7223EFA3400010EAE1 /* GithubAPIModels.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		AFC6D03E23ECC16900540635 /* NightfallLauncher */ = {
@@ -198,6 +177,7 @@
 			children = (
 				AFC736C923B01D7800D80A21 /* AboutView.swift */,
 				AFCF6CB223B5254400C5CA70 /* PreferencesView.swift */,
+				00000000000000000000A4 /* WindowsSyncSection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,7 +188,8 @@
 				AFE1CCEB279A53FD00DBC30F /* AppearanceTheme.swift */,
 				AF939CDE23B441FD00053801 /* ObservableUserDefault.swift */,
 				AFDE642223C920DA00BBEB7A /* PermissionUtil.swift */,
-				AF7A00B123EE5F890062D841 /* SemanticVersion.swift */,
+				00000000000000000000A1 /* WindowsThemeSync.swift */,
+				00000000000000000000A3 /* WindowsVMProvisioner.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -386,15 +367,14 @@
 				AFC736CA23B01D7800D80A21 /* AboutView.swift in Sources */,
 				AFCF6CB323B5254400C5CA70 /* PreferencesView.swift in Sources */,
 				AF939CDF23B441FD00053801 /* ObservableUserDefault.swift in Sources */,
-				AF7A00B223EE5F890062D841 /* SemanticVersion.swift in Sources */,
-				AF3F393C23F4633C0071520B /* AppUpdateChecker.swift in Sources */,
 				AFDE642323C920DA00BBEB7A /* PermissionUtil.swift in Sources */,
-				AF559C7323EFA3400010EAE1 /* GithubAPIModels.swift in Sources */,
+				00000000000000000000A2 /* WindowsThemeSync.swift in Sources */,
+				00000000000000000000B1 /* WindowsVMProvisioner.swift in Sources */,
+				00000000000000000000B2 /* WindowsSyncSection.swift in Sources */,
 				AFCF6CBD23B920AB00C5CA70 /* NSMenuItem.swift in Sources */,
 				AF28E82423AA997E007FA92D /* PreferencesPopover.swift in Sources */,
 				AFE1CCEC279A53FD00DBC30F /* AppearanceTheme.swift in Sources */,
 				AF0046BB23C026CB001A2C61 /* UserDefaults.swift in Sources */,
-				AFEA8B2523F1C5430047EDD0 /* GithubAPI.swift in Sources */,
 				AF939CD923B3FA2E00053801 /* AboutWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
