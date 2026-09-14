@@ -23,7 +23,7 @@ https://user-images.githubusercontent.com/29545379/150662417-90e6a4f8-7ad9-436a-
 | **This fork** (+ Windows-VM theme sync) | [releases of this repository](../../releases) | ✗ ad-hoc |
 | **Official release** | [latest](https://github.com/r-thomson/Nightfall/releases/latest) | ✓ |
 
-1. Download **Nightfall-arm64.zip** from the releases page
+1. Download **Nightfall-arm64.dmg** from the releases page
 2. Unzip and move **Nightfall.app** into **Applications**
 3. Launch — grant **Screen Recording** permission if you enable animated transitions
 

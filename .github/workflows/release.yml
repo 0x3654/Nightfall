@@ -1,9 +1,10 @@
-name: Release (Unsigned zip)
+name: Release (Unsigned DMG)
 
 # No Apple Developer account: CI builds are ad-hoc signed (run locally after
 # right-click -> Open). Mirrors the local Release build: xcodebuild, then a
-# plain zip via ditto (keeps the signature). No Sparkle in Nightfall — the
-# update checker is removed from this fork, releases are manual.
+# plain UDZO DMG (the copy inside is signature-verified before packing).
+# No Sparkle in Nightfall — the update checker is removed from this fork,
+# releases are manual.
 on:
   workflow_dispatch:
   push:
@@ -22,7 +23,7 @@ jobs:
       PROJECT: Nightfall.xcodeproj
       DERIVED_DATA_PATH: ${{ github.workspace }}/build/DerivedData
       APP_PATH: ${{ github.workspace }}/build/DerivedData/Build/Products/Release/Nightfall.app
-      ZIP_PATH: ${{ github.workspace }}/build/Nightfall-arm64.zip
+      DMG_PATH: ${{ github.workspace }}/build/Nightfall-arm64.dmg
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,17 +53,22 @@ jobs:
           codesign --force --sign - --deep "$APP_PATH"
           codesign --verify --strict --verbose=2 "$APP_PATH"
 
-      - name: Create zip
+      - name: Create DMG
         run: |
           set -euo pipefail
-          cd "$(dirname "$APP_PATH")"
-          ditto -c -k --keepParent "$(basename "$APP_PATH")" "$ZIP_PATH"
+          rm -rf "${{ github.workspace }}/build/dmg"
+          mkdir -p "${{ github.workspace }}/build/dmg"
+          ditto "$APP_PATH" "${{ github.workspace }}/build/dmg/${{ env.APP_NAME }}.app"
+          # The copy must still pass strict verification before it goes into the DMG.
+          codesign --verify --strict "${{ github.workspace }}/build/dmg/${{ env.APP_NAME }}.app"
+          ln -s /Applications "${{ github.workspace }}/build/dmg/Applications"
+          hdiutil create -volname "$APP_NAME" -srcfolder "${{ github.workspace }}/build/dmg" -ov -format UDZO "$DMG_PATH"
 
-      - name: Upload zip artifact
+      - name: Upload DMG artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Nightfall-arm64-zip
-          path: "${{ env.ZIP_PATH }}"
+          name: Nightfall-arm64-dmg
+          path: "${{ env.DMG_PATH }}"
 
       - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
@@ -70,4 +76,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          gh release create "${{ github.ref_name }}" "$ZIP_PATH" --generate-notes
+          gh release create "${{ github.ref_name }}" "$DMG_PATH" --generate-notes
